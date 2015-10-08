@@ -7,7 +7,7 @@
 	      regards to the size of the screen
 */
 
-/* first colum, top image */
+/* left column, top image */
 @media all and (min-width: 1201px) {
 	.homer {
 		width:166px; 
@@ -16,7 +16,7 @@
 	}
 }
 
-/* second column, top image */
+/* right column, top image */
 @media all and (min-width: 1101px) and (max-width: 1200px) {
 	.homer {
 		width:167px; 
@@ -25,7 +25,7 @@
 	}
 }
 
-/* first column, second image */
+/* left column, second image */
 @media all and (min-width: 1001px) and (max-width: 1100px) {
 	.homer {
 		width:166px; 
@@ -34,7 +34,7 @@
 	}
 }
 
-/* second column, second image */
+/* right column, second image */
 @media all and (min-width: 901px) and (max-width: 1000px) {
 	.homer {
 		width:167px; 
@@ -43,7 +43,7 @@
 	}
 }
 
-/* first column, third image */
+/* left column, third image */
 @media all and (min-width: 801px) and (max-width: 900px) {
 	.homer {
 		width:166px; 
@@ -52,7 +52,7 @@
 	}
 }
 
-/* second column, third image */
+/* right column, third image */
 @media all and (min-width: 701px) and (max-width: 800px) {
 	.homer {
 		width:167px; 
@@ -61,7 +61,7 @@
 	}
 }
 
-/* first column, bottom image */
+/* left column, bottom image */
 @media all and (min-width: 601px) and (max-width: 700px) {
 	.homer {
 		width:166px; 
@@ -70,7 +70,7 @@
 	}
 }
 
-/* second column, bottom image */
+/* right column, bottom image */
 @media all and (max-width: 600px) {
 	.homer {
 		width:167px; 
