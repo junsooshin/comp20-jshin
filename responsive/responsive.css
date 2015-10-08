@@ -7,7 +7,7 @@
 	      regards to the size of the screen
 */
 
-/* first colum, first image */
+/* first colum, top image */
 @media all and (min-width: 1201px) {
 	.homer {
 		width:166px; 
@@ -16,7 +16,7 @@
 	}
 }
 
-/* second column, first image */
+/* second column, top image */
 @media all and (min-width: 1101px) and (max-width: 1200px) {
 	.homer {
 		width:167px; 
@@ -58,5 +58,14 @@
 		width:167px; 
 		height:125px; 
 		background:url(homer.jpg) -166px -250px;
+	}
+}
+
+/* first column, bottom image */
+@media all and (min-width: 601px) and (max-width: 700px) {
+	.homer {
+		width:166px; 
+		height:125px; 
+		background:url(homer.jpg) 0px -375px;
 	}
 }
