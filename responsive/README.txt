@@ -16,7 +16,7 @@ What has been correctly implemented and what has not:
 
 Acknowledgements: 
 
-	- Piazza posts and answers from Ming, TA's, and classmates
+	- Piazza posts and answers from Ming, TA's, and classmates helped me
 
 	- http://alistapart.com/article/responsive-web-design
 		- showed that .homer class can go inside @media
@@ -28,7 +28,7 @@ Acknowledgements:
 	- https://css-tricks.com/snippets/css/media-queries-for-standard-devices
 		- showed how to use @media
 
-	- I have discussed the problem with Peter Lee
+	- I discussed the problem with Peter Lee
 
 Hours spent: 
 
