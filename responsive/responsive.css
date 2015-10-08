@@ -19,7 +19,7 @@
 	.homer {
 		width:167px; 
 		height:125px; 
-		background:url(homer.jpg) 166px 0px;
+		background:url(homer.jpg) -166px 0px;
 	}
 }
 
@@ -27,6 +27,6 @@
 	.homer {
 		width:166px; 
 		height:125px; 
-		background:url(homer.jpg) 0px 125px;
+		background:url(homer.jpg) 0px -125px;
 	}
 }
