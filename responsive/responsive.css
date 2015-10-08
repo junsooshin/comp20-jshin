@@ -69,3 +69,12 @@
 		background:url(homer.jpg) 0px -375px;
 	}
 }
+
+/* second column, bottom image */
+@media all and (max-width: 600px) {
+	.homer {
+		width:167px; 
+		height:125px; 
+		background:url(homer.jpg) -166px -375px;
+	}
+}
