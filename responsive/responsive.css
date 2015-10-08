@@ -30,3 +30,11 @@
 		background:url(homer.jpg) 0px -125px;
 	}
 }
+
+@media all and (min-width: 901px) and (max-width: 1000px) {
+	.homer {
+		width:166px; 
+		height:125px; 
+		background:url(homer.jpg) -166px -125px;
+	}
+}
