@@ -7,3 +7,10 @@
 	      regards to the size of the screen
 */
 
+@media all and (min-width: 1201px) {
+	.homer {
+		width:166px; 
+		height:125px; 
+		background:url(homer.jpg) 0 0px;
+	}
+}
