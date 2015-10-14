@@ -15,7 +15,7 @@ function init() {
 	var background = new Image();
 
 	background.addEventListener("load", function() {
-
+		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240);
 	}, false);
 
 	background.src = "duckhunt-background.gif";
