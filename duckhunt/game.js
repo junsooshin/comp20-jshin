@@ -13,10 +13,20 @@ function init() {
 	var ctx = canvas.getContext("2d");
 
 	var background = new Image();
+	var sheet = new Image();
 
-	background.addEventListener("load", function() {
-		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240);
+	background.addEventListener("load", function drawBackground() {
+
+ 		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240);
+
+	}, false);
+
+	sheet.addEventListener("load", function drawDucks() {
+
+ 		ctx.drawImage(sheet, 0, 0, 40, 30, 80, 60, 40, 30);
+
 	}, false);
 
 	background.src = "duckhunt-background.gif";
+	sheet.src = "duckhunt_various_sheet.png";
 }
