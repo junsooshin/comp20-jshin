@@ -17,13 +17,18 @@ function init() {
 
 	background.addEventListener("load", function drawBackground() {
 
+		// background
  		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240);
 
 	}, false);
 
 	sheet.addEventListener("load", function drawDucks() {
 
- 		ctx.drawImage(sheet, 0, 0, 40, 30, 80, 60, 40, 30);
+		// left duck
+ 		ctx.drawImage(sheet, 35, 120, 40, 30, 80, 60, 40, 30);
+
+ 		// right duck
+ 		ctx.drawImage(sheet, 125, 120, 40, 30, 140, 40, 40, 30);
 
 	}, false);
 
