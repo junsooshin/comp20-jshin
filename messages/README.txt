@@ -53,8 +53,7 @@ Acknowledgements:
 
 	- https://en.wikipedia.org/wiki/XMLHttpRequest
 	  https://en.wikipedia.org/wiki/Same-origin_policy
-	  https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_
-	  policy
+	  https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 	  to answer the question above
 
 Hours spent: 
