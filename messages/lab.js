@@ -14,6 +14,11 @@ function parse() {
 	myRequest.open("get", "data.json", true);
 	myRequest.send();
 
-	
+	myRequest.onreadystatechange = function() {
 
+
+		}
+
+	}
+	
 }
