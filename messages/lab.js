@@ -14,5 +14,17 @@ function parse() {
 	myRequest.open("get", "data.json", true);
 	myRequest.send();
 
+	myRequest.onreadystatechange = function() {
+		if (myRequest.readyState == 4 && myRequest.status == 200) {
+    			var parsedObjects = JSON.parse(myRequest.responseText);
+    			elem = document.getElementById("messages");
+			
+			for (count = 0; count < parsedObjects.length; count++) {
+				elem.innerHTML += "<p>" + 
+				parsedObjects[count]["content"] + " - " 
+           			+ parsedObjects[count]["username"] + "</p>";
+			}
 
+		}
+	}
 }
