@@ -22,7 +22,17 @@ The Question:
 	  chrome-extension, https, chrome-extension-resource.parse @ lab.
 	  js:15onload @ (index):12
 
-	- 
+	- XMLHttpRequest request follows a web-browser's the same-origin-policy,
+	  which means that the scripts in one webpage will have acess to the
+	  data in another page only if both pages have the same origin. The
+	  policy is an important security mechanism that prevents a malicious
+	  document in one webpage from gaining access to sensitive data in 
+	  another webpage.
+
+	  Since lab.js at Github does not share the same origin with the 
+	  messagehub website and the file from my local machine, the requests 
+	  from lab.js for the data there do not go through.
+
 
 What has been correctly implemented and what has not:
 
@@ -41,6 +51,12 @@ Acknowledgements:
 
 	- Classnotes on Asynchronous JavaScript and XML
 
+	- https://en.wikipedia.org/wiki/XMLHttpRequest
+	  https://en.wikipedia.org/wiki/Same-origin_policy
+	  https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_
+	  policy
+	  to answer the question above
+
 Hours spent: 
 
-	3 hours
+	4 hours
