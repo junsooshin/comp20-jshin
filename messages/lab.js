@@ -11,11 +11,12 @@
 function parse() {
 
 	var myRequest = new XMLHttpRequest();
-	myRequest.open("get", "data.json", true);
+	myRequest.open("get", "file:///Users/JunSooShin/Desktop/Informatik/comp20/comp20-jshin/messages/data.json", true);
 	myRequest.send();
 
 	myRequest.onreadystatechange = function() {
 		if (myRequest.readyState == 4 && myRequest.status == 200) {
+
     			var parsedObjects = JSON.parse(myRequest.responseText);
     			elem = document.getElementById("messages");
 			
