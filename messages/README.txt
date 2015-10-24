@@ -9,10 +9,7 @@ The Question:
 	http://messagehub.herokuapp.com/) or from your local machine (from 
 	file:///) from using XMLHttpRequest? Why or why not?
 
-	- No, using the different origin does not show the content and gives me
-	  
-	  Uncaught SyntaxError: Unexpected token <myRequest.onreadystatechange @
-	  lab.js:20
+	- Yes, using this different origin showed the contents.
 
 	- No, using a local machine does not show the content and gives me 
 
@@ -29,10 +26,14 @@ The Question:
 	  document in one webpage from gaining access to sensitive data in 
 	  another webpage.
 
-	  Since lab.js at Github does not share the same origin with the 
-	  messagehub website and the file from my local machine, the requests 
-	  from lab.js for the data there do not go through.
+	  It seemed that requesting data from a different origin should not work.
+	  However, there also seemed to be exceptions and workarounds to the policy
+	  like cross-domain requests. So this messagehub.herokuapp.com/messages.json
+	  must have been given permission.
 
+	  Since lab.js at Github does not share the same origin with the file from 
+	  my local machine, the requests from lab.js for the data there do not go 
+	  through.
 
 What has been correctly implemented and what has not:
 
