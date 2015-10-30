@@ -20,6 +20,9 @@
 					};
 			var map;
 			var marker;
+			var image = {
+				url: "umbrella.png",
+			};
 			var infowindow = new google.maps.InfoWindow();
 			
 			function init()
@@ -41,10 +44,11 @@
 					alert("Geolocation is not supported by your web browser.  What a shame!");
 				}
 			}
-			
+
 			function renderMap()
 			{
 				me = new google.maps.LatLng(myLat, myLng);
+				
 				
 				// Update map and go there...
 				map.panTo(me);
@@ -52,7 +56,8 @@
 				// Create a marker
 				marker = new google.maps.Marker({
 					position: me,
-					title: "Here I Am!"
+					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 km", // might have to come back here later
+					icon: image
 				});
 				marker.setMap(map);
 					
