@@ -18,7 +18,8 @@ function init() {
 	background.addEventListener("load", function drawBackground() {
 
 		// background
- 		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240);
+ 		ctx.drawImage(background, 0, 0, 256, 240, 0, 0, 256, 240
+ 			);
 
 	}, false);
 
