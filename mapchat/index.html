@@ -20,7 +20,7 @@
 					};
 			var map;
 			var marker;
-			var image = "umbrella.png";
+			var image = "umbrella.png";  // used as the unique icon
 			var infowindow;
 			
 			function init()
@@ -47,10 +47,8 @@
 			{
 				me = new google.maps.LatLng(myLat, myLng);
 				
-				// Update map and go there...
+				// Update map and go there
 				map.panTo(me);
-
-
 
 				myRequest.open("post", "https://secret-about-box.herokuapp.com/sendLocation", true);
 				myRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -58,12 +56,12 @@
 				var login = encodeURIComponent("RobJohnson");
 				var message = encodeURIComponent("Where am I?");
 
-				// copied 
+				// copied directly from 
+				// http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
 				Number.prototype.toRad = function() {
 					return this * Math.PI / 180;
 				}
 				
-
 				myRequest.onreadystatechange = function() {
 					if (myRequest.readyState == 4 && myRequest.status == 200) {
 			
@@ -75,10 +73,9 @@
 							var lng = parsedObjects[count]["lng"]
 							var pos = new google.maps.LatLng(lat, lng);
 
-							var lat;
-							var lng;
-
-							var R = 6371; // km 
+							// lines 79-88 are copied directly from 
+							//  http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
+							var R = 6371;  // km 
 							var x1 = lat-myLat;
 							var dLat = x1.toRad();  
 							var x2 = lng-myLng;
@@ -87,14 +84,14 @@
 							                Math.cos(myLat.toRad()) * Math.cos(lat.toRad()) * 
 							                Math.sin(dLon/2) * Math.sin(dLon/2);  
 							var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-							var d = R * c; // distance
+							var d = R * c * 0.62137119;  // distance in miles
 
 							// create markers for other people
 							marker = new google.maps.Marker({
 								position: pos,
-								title: "Login: " + parsedObjects[count]["login"] + " / " +
-								   	   "Message: " + parsedObjects[count]["message"] + " / " +
-								       "Distance: " + d + " km"
+								title: "Login: " + parsedObjects[count]["login"] + " / " 
+									   + "Message: " + parsedObjects[count]["message"] + " / " 
+									   + "Distance: " + d + " mi"
 							});
 							marker.setMap(map);
 					
@@ -110,12 +107,15 @@
 					}
 				}
 
-				myRequest.send("login=" + login + "&lat=" + myLat + "&lng=" + myLng + "&message=" + message);
+				myRequest.send("login=" + encodeURIComponent("RobJohnson") 
+								+ "&lat=" + encodeURIComponent(myLat) 
+								+ "&lng=" + encodeURIComponent(myLng) 
+								+ "&message=" + encodeURIComponent("Where am I?"));
 
 				// Create my unique marker
 				marker = new google.maps.Marker({
 					position: me,
-					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 km",
+					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 mi",
 					icon: image
 				});
 				marker.setMap(map);
