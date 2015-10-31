@@ -79,8 +79,8 @@
 					
 							infowindow = new google.maps.InfoWindow();
 							google.maps.event.addListener(marker, 'click', function() {
-								infowindow.setContent(marker.title);
-								infowindow.open(map, marker);
+								infowindow.setContent(this.title);
+								infowindow.open(this.map, this);
 							});
 						}
 					}
@@ -101,8 +101,8 @@
 					
 				// Open info window on click of marker
 				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.setContent(marker.title);
-					infowindow.open(map, marker);
+					infowindow.setContent(this.title);
+					infowindow.open(this.map, this);
 				});
 			}
 		</script>
