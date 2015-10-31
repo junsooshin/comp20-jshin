@@ -11,7 +11,7 @@
 		<script>
 			var myLat = 0;
 			var myLng = 0;
-			var request = new XMLHttpRequest();
+			var myRequest = new XMLHttpRequest();
 			var me = new google.maps.LatLng(myLat, myLng);
 			var myOptions = {
 						zoom: 15, // The larger the zoom number, the bigger the zoom
@@ -20,7 +20,8 @@
 					};
 			var map;
 			var marker;
-			var infowindow = new google.maps.InfoWindow();
+			var image = "umbrella.png";  // used as the unique icon
+			var infowindow;
 			
 			function init()
 			{
@@ -38,28 +39,90 @@
 					});
 				}
 				else {
-					alert("Geolocation is not supported by your web browser.  What a shame!");
+					alert("Geolocation is not supported by your web browser. What a shame!");
 				}
 			}
-			
+
 			function renderMap()
 			{
 				me = new google.maps.LatLng(myLat, myLng);
 				
-				// Update map and go there...
+				// Update map and go there
 				map.panTo(me);
-	
-				// Create a marker
+
+				myRequest.open("post", "https://secret-about-box.herokuapp.com/sendLocation", true);
+				myRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+				var login = encodeURIComponent("RobJohnson");
+				var message = encodeURIComponent("Where am I?");
+
+				// copied directly from 
+				// http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
+				Number.prototype.toRad = function() {
+					return this * Math.PI / 180;
+				}
+				
+				myRequest.onreadystatechange = function() {
+					if (myRequest.readyState == 4 && myRequest.status == 200) {
+			
+    					var parsedObjects = JSON.parse(myRequest.responseText);
+						
+						for (count = 0; count < parsedObjects.length; count++) {
+
+							var lat = parsedObjects[count]["lat"];
+							var lng = parsedObjects[count]["lng"]
+							var pos = new google.maps.LatLng(lat, lng);
+
+							// lines 78-87 are copied directly from 
+							// http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
+							var R = 6371;  // km 
+							var x1 = lat-myLat;
+							var dLat = x1.toRad();  
+							var x2 = lng-myLng;
+							var dLon = x2.toRad();  
+							var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+							                Math.cos(myLat.toRad()) * Math.cos(lat.toRad()) * 
+							                Math.sin(dLon/2) * Math.sin(dLon/2);  
+							var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+							var d = R * c * 0.62137119;  // distance in miles
+
+							// create markers for other people
+							marker = new google.maps.Marker({
+								position: pos,
+								title: "Login: " + parsedObjects[count]["login"] + " / " 
+									   + "Message: " + parsedObjects[count]["message"] + " / " 
+									   + "Distance: " + d + " mi"
+							});
+							marker.setMap(map);
+					
+							// pop up window for other people
+							infowindow = new google.maps.InfoWindow({
+								maxWidth: 200
+							});
+							google.maps.event.addListener(marker, 'click', function() {
+								infowindow.setContent(this.title);
+								infowindow.open(this.map, this);
+							});
+						}
+					}
+				}
+
+				myRequest.send("login=" + encodeURIComponent("RobJohnson") 
+								+ "&lat=" + encodeURIComponent(myLat) 
+								+ "&lng=" + encodeURIComponent(myLng) 
+								+ "&message=" + encodeURIComponent("Where am I?"));
+
+				// Create my unique marker
 				marker = new google.maps.Marker({
 					position: me,
-					title: "Here I Am!"
+					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 mi",
+					icon: image
 				});
 				marker.setMap(map);
-					
-				// Open info window on click of marker
+				
 				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.setContent(marker.title);
-					infowindow.open(map, marker);
+					infowindow.setContent(this.title);
+					infowindow.open(this.map, this);
 				});
 			}
 		</script>
