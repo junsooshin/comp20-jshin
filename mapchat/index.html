@@ -58,26 +58,50 @@
 				var login = encodeURIComponent("RobJohnson");
 				var message = encodeURIComponent("Where am I?");
 
+				// copied 
+				Number.prototype.toRad = function() {
+					return this * Math.PI / 180;
+				}
+				
+
 				myRequest.onreadystatechange = function() {
 					if (myRequest.readyState == 4 && myRequest.status == 200) {
 			
     					var parsedObjects = JSON.parse(myRequest.responseText);
-    					elem = document.getElementById("map_canvas");
-			
+						
 						for (count = 0; count < parsedObjects.length; count++) {
-							
-							var pos = new google.maps.LatLng(parsedObjects[count]["lat"], parsedObjects[count]["lng"]);
 
+							var lat = parsedObjects[count]["lat"];
+							var lng = parsedObjects[count]["lng"]
+							var pos = new google.maps.LatLng(lat, lng);
+
+							var lat;
+							var lng;
+
+							var R = 6371; // km 
+							var x1 = lat-myLat;
+							var dLat = x1.toRad();  
+							var x2 = lng-myLng;
+							var dLon = x2.toRad();  
+							var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+							                Math.cos(myLat.toRad()) * Math.cos(lat.toRad()) * 
+							                Math.sin(dLon/2) * Math.sin(dLon/2);  
+							var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+							var d = R * c; // distance
+
+							// create markers for other people
 							marker = new google.maps.Marker({
 								position: pos,
 								title: "Login: " + parsedObjects[count]["login"] + " / " +
 								   	   "Message: " + parsedObjects[count]["message"] + " / " +
-								       "Latitude: " + parsedObjects[count]["lat"] + " / " +
-								       "Longitude: " + parsedObjects[count]["lng"]
+								       "Distance: " + d + " km"
 							});
 							marker.setMap(map);
 					
-							infowindow = new google.maps.InfoWindow();
+							// pop up window for other people
+							infowindow = new google.maps.InfoWindow({
+								maxWidth: 200
+							});
 							google.maps.event.addListener(marker, 'click', function() {
 								infowindow.setContent(this.title);
 								infowindow.open(this.map, this);
@@ -88,18 +112,14 @@
 
 				myRequest.send("login=" + login + "&lat=" + myLat + "&lng=" + myLng + "&message=" + message);
 
-
-
-
-				// Create a marker
+				// Create my unique marker
 				marker = new google.maps.Marker({
 					position: me,
-					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 km", // might have to come back here later
+					title: "Login: RobJohnson / Message: Where am I? / Distance: 0 km",
 					icon: image
 				});
 				marker.setMap(map);
-					
-				// Open info window on click of marker
+				
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.setContent(this.title);
 					infowindow.open(this.map, this);
