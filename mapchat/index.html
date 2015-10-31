@@ -11,7 +11,7 @@
 		<script>
 			var myLat = 0;
 			var myLng = 0;
-			var request = new XMLHttpRequest();
+			var myRequest = new XMLHttpRequest();
 			var me = new google.maps.LatLng(myLat, myLng);
 			var myOptions = {
 						zoom: 15, // The larger the zoom number, the bigger the zoom
@@ -20,10 +20,8 @@
 					};
 			var map;
 			var marker;
-			var image = {
-				url: "umbrella.png",
-			};
-			var infowindow = new google.maps.InfoWindow();
+			var image = "umbrella.png";
+			var infowindow;
 			
 			function init()
 			{
@@ -41,7 +39,7 @@
 					});
 				}
 				else {
-					alert("Geolocation is not supported by your web browser.  What a shame!");
+					alert("Geolocation is not supported by your web browser. What a shame!");
 				}
 			}
 
@@ -49,10 +47,50 @@
 			{
 				me = new google.maps.LatLng(myLat, myLng);
 				
-				
 				// Update map and go there...
 				map.panTo(me);
-	
+
+
+
+				myRequest.open("post", "https://secret-about-box.herokuapp.com/sendLocation", true);
+				myRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+				var login = encodeURIComponent("RobJohnson");
+				var message = encodeURIComponent("Where am I?");
+
+				myRequest.onreadystatechange = function() {
+					if (myRequest.readyState == 4 && myRequest.status == 200) {
+			
+    					var parsedObjects = JSON.parse(myRequest.responseText);
+    					elem = document.getElementById("map_canvas");
+			
+						for (count = 0; count < parsedObjects.length; count++) {
+							
+							var pos = new google.maps.LatLng(parsedObjects[count]["lat"], parsedObjects[count]["lng"]);
+
+							marker = new google.maps.Marker({
+								position: pos,
+								title: "Login: " + parsedObjects[count]["login"] + " / " +
+								   	   "Message: " + parsedObjects[count]["message"] + " / " +
+								       "Latitude: " + parsedObjects[count]["lat"] + " / " +
+								       "Longitude: " + parsedObjects[count]["lng"]
+							});
+							marker.setMap(map);
+					
+							infowindow = new google.maps.InfoWindow();
+							google.maps.event.addListener(marker, 'click', function() {
+								infowindow.setContent(marker.title);
+								infowindow.open(map, marker);
+							});
+						}
+					}
+				}
+
+				myRequest.send("login=" + login + "&lat=" + myLat + "&lng=" + myLng + "&message=" + message);
+
+
+
+
 				// Create a marker
 				marker = new google.maps.Marker({
 					position: me,
