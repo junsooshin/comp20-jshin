@@ -1,1 +1,1 @@
-# comp20-jshin
+# comp20-jshin (newly cloned with .gitignore file)
