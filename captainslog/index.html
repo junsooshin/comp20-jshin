@@ -15,17 +15,17 @@
 	<script>
 
 	$(document).ready(function(){
-
+		
 		function reload() {
 			// accessing the log to print out the messages in localStorage
 			elem = document.getElementById("log");
 			output = "";
-
 			// loop through localStorage backward and print log on screen
 			for (var i = localStorage.length-1; i >= 0; i--) {
 				output = output + "<p>" 
-								+ localStorage.getItem(localStorage.key(i)) 
-								+ " - " + localStorage.key(i) + "</p>\n";
+								+ localStorage.key(i) + " - " 
+								+ localStorage.getItem(localStorage.key(i))
+								+ "</p>\n";
 			}
 			elem.innerHTML = output;
 		}
@@ -35,7 +35,6 @@
 
 		$("#msg").keypress(function(event) {
 			if (event.which == 13) {
-
 				var date = new Date();
 				var options = {weekday: 'short', month: 'short', day: 'numeric', 
 							   year: 'numeric', hour: 'numeric', 

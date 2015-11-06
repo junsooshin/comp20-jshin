@@ -26,7 +26,7 @@ Acknowledgements:
 
 	- http://stackoverflow.com/questions/9758603/javascript-looping-through
 	  -local-storage-to-find-an-element
-	  Helped me loop through the local storage
+	  Helped me loop through the local storage (localStorage.clear())
 
 	- http://www.tutorialspoint.com/jquery/jquery-basics.htm
 	  Helped me define a jQuery helper function
