@@ -1,15 +1,15 @@
 README.txt
-by Jun Soo Shin
+by Jun Soo (Derek) Shin
 Lab 7: README
 due 5 November 2015
 
 What has been correctly implemented and what has not:
 	
-	Printing out the entered messages on screen with the human readable 
-	timestamps with the latest update showing on top has been implemented.
+	Printing out the input messages onto the screen with the human readable 
+	timestamps and the latest update showing on top has been implemented.
 
 	Using local storage so that the messages are preserved and redisplayed
-	has been implemented.
+	on return to the page has been implemented.
 
 	I am not sure how much jQuery I used.
 
