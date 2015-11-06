@@ -16,16 +16,22 @@
 
 	$(document).ready(function(){
 
-	//localStorage.clear();
+		function reload() {
+			// accessing the log to print out the messages in localStorage
+			elem = document.getElementById("log");
+			output = "";
 
-		elem = document.getElementById("log");
-		output = "";
-		for (var i = localStorage.length-1; i >= 0; i--) {
-			output = output + "<p>" 
-							+ localStorage.getItem(localStorage.key(i)) 
-							+ " - " + localStorage.key(i) + "</p>\n";
+			// loop through localStorage backward and print log on screen
+			for (var i = localStorage.length-1; i >= 0; i--) {
+				output = output + "<p>" 
+								+ localStorage.getItem(localStorage.key(i)) 
+								+ " - " + localStorage.key(i) + "</p>\n";
+			}
+			elem.innerHTML = output;
 		}
-		elem.innerHTML = output;
+
+		// make sure that the messages are printed out when this file is opened
+		reload();
 
 		$("#msg").keypress(function(event) {
 			if (event.which == 13) {
@@ -42,20 +48,10 @@
 
 				// store in localStorage with date as keys
 				localStorage.setItem(new Date().toLocaleString('en-US', options), txt);
-				
-				// accessing the log to print out the messages in localStorage
-				elem = document.getElementById("log");
 
-				output = "";
-
-				// loop through localStorage backward and print log on screen
-				for (var i = localStorage.length-1; i >= 0; i--) {
-					output = output + "<p>" 
-									+ localStorage.getItem(localStorage.key(i)) 
-									+ " - " + localStorage.key(i) + "</p>\n";
-				}
-				elem.innerHTML = output;
-			}
+				// call reload() to immediately print out the entered message
+				reload();
+				}		
 		});		
 	});
 	

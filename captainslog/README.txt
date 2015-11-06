@@ -4,8 +4,14 @@ Lab 7: README
 due 5 November 2015
 
 What has been correctly implemented and what has not:
-
 	
+	Printing out the entered messages on screen with the human readable 
+	timestamps with the latest update showing on top has been implemented.
+
+	Using local storage so that the messages are preserved and redisplayed
+	has been implemented.
+
+	I am not sure how much jQuery I used.
 
 Acknowledgements: 
 
@@ -13,8 +19,22 @@ Acknowledgements:
 	
 	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 	  /Global_Objects/Date
-	
+	  Helped me use the Date object to get human readable date and time
+
+	- http://www.w3schools.com/html/html5_webstorage.asp
+	  Helped me use the local storage
+
+	- http://stackoverflow.com/questions/9758603/javascript-looping-through
+	  -local-storage-to-find-an-element
+	  Helped me loop through the local storage
+
+	- http://www.tutorialspoint.com/jquery/jquery-basics.htm
+	  Helped me define a jQuery helper function
+
+	- https://stackoverflow.com/questions/10710674/html5-localstorage-remove
+	  -clear-all-data
+	  Helped me reset the local storage during tests
 
 Hours spent: 
 
-	 hours
+	5 hours
