@@ -11,6 +11,8 @@ Acknowledgements:
 
 	- Piazza questions and answers by Ming, TA's, and classmates
 	
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+	  /Global_Objects/Date
 	
 
 Hours spent: 
