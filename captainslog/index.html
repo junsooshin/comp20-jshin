@@ -15,34 +15,36 @@
 	<script>
 
 	$(document).ready(function(){
+		//localStorage.clear();
+
+
 
 		$("#msg").keypress(function(event) {
 			if (event.which == 13) {
 
-
 				var date = new Date();
-				var options = { weekday: 'short', month: 'short', 
-			                    day: 'numeric', year: 'numeric', 
-			        		    hour: 'numeric',
-			        		    minute: 'numeric',
-			        		    second: 'numeric',
-			        		    timeZone: 'America/New_York', 
-			        		    timeZoneName: 'short'};
+				var options = {weekday: 'short', month: 'short', day: 'numeric', 
+							   year: 'numeric', hour: 'numeric', 
+							   minute: 'numeric', second: 'numeric',
+			        		   timeZone: 'America/New_York', 
+			        		   timeZoneName: 'short'};
 
-				txt = document.getElementById("msg").value;
+			    // get the input
+				txt = document.getElementById("msg").value;  
 
-				localStorage[new Date().toLocaleString('en-US', options)] = txt;
+				//store in localStorage with date as keys
+				localStorage.setItem(new Date().toLocaleString('en-US', options), txt);
 
-							elem = document.getElementById("log");
+				// accessing the log to print out the messages in localStorage
+				elem = document.getElementById("log");
 
 				output = "";
 
-				for (key in localStorage) {
-					output = output + "<p>" + localStorage[key] + " - " + key + "</p>\n";
+				for (var i = localStorage.length-1; i > 0; i--) {
+					output = output + "<p>" + localStorage.getItem(localStorage.key(i)) + " - " + localStorage.key(i) + "</p>\n";
 				}
 
 				elem.innerHTML = output;
-
 			}
 		});		
 	});
