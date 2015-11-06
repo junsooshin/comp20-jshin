@@ -15,11 +15,9 @@
 	<script>
 
 	$(document).ready(function(){
-
+		
 		function reload() {
-			// accessing the log to print out the messages in localStorage
-			elem = document.getElementById("log");
-			output = "";
+			var output = "";
 			// loop through localStorage backward and print log on screen
 			for (var i = localStorage.length-1; i >= 0; i--) {
 				output = output + "<p>" 
@@ -27,7 +25,7 @@
 								+ localStorage.getItem(localStorage.key(i))
 								+ "</p>\n";
 			}
-			elem.innerHTML = output;
+			$("#log").html(output);
 		}
 
 		// make sure that the messages are printed out when this file is opened
@@ -43,7 +41,7 @@
 			        		   timeZoneName: 'short'};
 
 			    // get the input
-				txt = document.getElementById("msg").value;  
+				var txt = $("#msg").val();  
 
 				// store in localStorage with date as keys
 				localStorage.setItem(new Date().toLocaleString('en-US', options), txt);

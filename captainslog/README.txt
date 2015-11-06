@@ -11,7 +11,7 @@ What has been correctly implemented and what has not:
 	Using local storage so that the messages are preserved and redisplayed
 	on return to the page has been implemented.
 
-	I am not sure how much jQuery I used.
+	I am not sure if I used enough jQuery.
 
 Acknowledgements: 
 
@@ -34,6 +34,12 @@ Acknowledgements:
 	- https://stackoverflow.com/questions/10710674/html5-localstorage-remove
 	  -clear-all-data
 	  Helped me reset the local storage during tests
+
+	- http://stackoverflow.com/questions/4088467/get-the-value-in-an-input-text
+	  -box
+	  Helped me get the value of the input
+
+	- Peter Lee for letting me know to use jQuery's .text() 
 
 Hours spent: 
 
