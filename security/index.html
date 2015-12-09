@@ -3,7 +3,7 @@
 <!-- index.html
 	 by Jun Soo (Derek) Shin
 	 Comp 20: Assignment 4
-	 due 9 December 2015	-->
+	 due 8 December 2015	-->
 
 <html>
 
@@ -24,13 +24,13 @@
 	<p>First, I did the "black-box" testing, which is performing attacks on the application before reading the source code. I used Postman application to send requests and checked the results on the hosted web page on <a href="https://vast-peak-9452.herokuapp.com">https://vast-peak-9452.herokuapp.com</a> and on the mongo database. Then, I looked at the source code to understand why certain issues happened. After reading the source code, I did "white-box" testing, which is testing the specific areas that looked suspicious from source code.</p>
 
 	<h2>Abstract of Findings</h2>
-	<p>Provide an overview of all the security and privacy issues you identified. This section should be written for non-technical managers who do not have technical expertise and do not have time to read the entire document. Write this section using lay language.</p>
+	<p>Since the application is related to the user's input, the vulnerabilites were found regarding that. The application filters a lot of the user input, but as my web programming professor used to say, "Don't never ever trust user input," it could be more strict.</p>
 
 	<h2>Issues Found</h2>
 
 	<ol>
 
-		<li><p><strong>Cross Origin Resource Scripting</strong></p>
+		<li><p><strong>Injection of Script String</strong></p>
 		<ul>
 			<li>The issue was found on <a href="https://vast-peak-9452.herokuapp.com">https://vast-peak-9452.herokuapp.com</a> which uses the 'GET / - Home, the root, the index' API. </li>
 			<li>High: If some other users depend on the output of this website, an attacker put what they want into the database and effect the webpage that runs the app.</li>
@@ -45,11 +45,8 @@
 			</tr>
 			</table>
 
-			<li>We need to check for dangerous characters like the angled brackets by writing code like <code>if(/^[a-zA-Z0-9- ]*$/.test(str) == false) { response.send('{"error":"Whoops, something is wrong with your data!"}'); } </code> </li>
+			<li>We need to check for dangerous characters like the angled brackets by writing code like <code>if(/^[a-zA-Z0-9- ]*$/.test(str) == false) { response.send('{"error":"Could you please write your message with just alphabets and numbers?"}'); } </code> </li>
 		</ul>
-		</li>
-
-		<li><p><strong>Second Finding</strong></p>
 		</li>
 
 		<li><p><strong>Allowing Non-numerical Values as Latitude and Longitude</strong></p>
@@ -73,10 +70,16 @@
 		</ul>
 		</li>
 
+				<li><p><strong>Cross Origin Resource Sharing</strong></p>
+		<ul>
+			<li>Perhaps the application is letting in too many people, who may not have authority to use the application, the right to input data. The line <code>response.header('Access-Control-Allow-Origin', '*');</code> for POST and GET latest.json API's is possibly allowing too many domains. The access to input should only be given to the trusted domains or users by modifying the line like <code>response.header('Access-Control-Allow-Origin', 'http://foo.example/id=mchow');</code>
+		</ul>
+		</li>
+
 	</ol>
 
 	<h2>Conclusion</h2>
-	<p>Let's conclude</p>
+	<p>The vulnerability issues above were found in about 10 hours. With more discussions with other security consultants, we can probably find more security issues. If the web applications were planned to be used as a business tool, security attacks could result in losing a lot of money. Discuss with a few more security consultants as well for more inspections.</p>
 
 </body>
 
