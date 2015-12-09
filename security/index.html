@@ -31,37 +31,46 @@
 	<ol>
 
 		<li><p><strong>Cross Origin Resource Scripting</strong></p>
-
 		<ul>
 			<li>The issue was found on <a href="https://vast-peak-9452.herokuapp.com">https://vast-peak-9452.herokuapp.com</a> which uses the 'GET / - Home, the root, the index' API. </li>
 			<li>High: If some other users depend on the output of this website, an attacker put what they want into the database and effect the webpage that runs the app.</li>
-			<li>Using Postman, I entered <code>&lt;script&gt;alert('Hey Steven');&lt;/script&gt;</code> as the value for the 'message' key. When loading web page, the alert box popped up. The value for message written on the screen was ' ', and in the database, the value for the message key was stored exactly as the entered input.</li>
+			<li>Using Postman, I entered <code>&lt;script&gt;alert('Hey Steven');&lt;/script&gt;</code> as the value for the 'message' key. When loading web page, the alert box popped up. The value for 'message' written on the screen was ' ', and in the database, the value for the message key was stored exactly as the entered input.</li>
 			<li>Screenshots on what happened:</li>
 
-			<td><img src="screenshot3.png" alt="logo1" title="What went into the database" /></td>
+			<td><img src="screenshot3.png" alt="Script went into the database" title="Script went into the database" /></td>
 			<table>
 			<tr>
-			<td><img src="screenshot1.png" alt="logo1" title="After injection" /></td>
-			<td><img src="screenshot2.png" alt="logo2" title="After clicking OK" /></td>
+			<td><img src="screenshot1.png" alt="After injection" title="After injection" /></td>
+			<td><img src="screenshot2.png" alt="After clicking OK" title="After clicking OK" /></td>
 			</tr>
 			</table>
 
 			<li>We need to check for dangerous characters like the angled brackets by writing code like <code>if(/^[a-zA-Z0-9- ]*$/.test(str) == false) { response.send('{"error":"Whoops, something is wrong with your data!"}'); } </code> </li>
 		</ul>
+		</li>
 
+		<li><p><strong>Second Finding</strong></p>
 		</li>
 
 		<li><p><strong>Allowing Non-numerical Values as Latitude and Longitude</strong></p>
-		</li>
-
 		<ul>
-			<li>The issue was also found on <a href="https://vast-peak-9452.herokuapp.com">https://vast-peak-9452.herokuapp.com</a> which uses the 'GET / - Home, the root, the index' API.
-			<li>Low: </li>
+			<li>The issue was also found on <a href="https://vast-peak-9452.herokuapp.com">https://vast-peak-9452.herokuapp.com</a> which uses the 'GET / - Home, the root, the index' API.</li>
+			<li>Low: I don't think this is really a security issue, as strings are not getting entered, but I think the input values for 'lat' and 'lng' should be checked more thoroughly. </li>
+			<li>Using Postman, I entered <code>&lt;script&gt;alert('Hey Steven');&lt;/script&gt;</code> as the value for the 'lat' key this time. The value for 'lat' was written as NaN both on the web page and in the database. On Mapchat page, the latitude for the location of the message was deciphered as 0.</li>
+			<li>Screenshots on what happened:</li>
 
+			<td><img src="screenshot6.png" alt="NaN went into the database" title="NaN went into the database" /></td>
+			<table>
+			<tr>
+			<td><img src="screenshot4.png" alt="On Mapchat page" title="On Mapchat page" /></td>
+			<td><img src="screenshot5.png" alt="On Server app page" title="On Server app page" /></td>
+			</tr>
+			</table>
 
+			<li>We can write code like <code> else if(validator.isNull(login) || validator.isNull(message)
+			   || validator.isNull(lat) || validator.isNull(lng) 
+			   || !validator.isFloat(lat) || !validator.isFloat(lng)) { response.send(errorText); return; } </code></li>
 		</ul>
-
-		<li><p><strong>Third Finding</strong></p>
 		</li>
 
 	</ol>
