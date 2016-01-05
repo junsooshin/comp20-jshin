@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--	index.html
-	by Jun Soo Shin
+	by Jun Soo (Derek) Shin
 	Comp 20: Lab 7
 	due 5 November 2015
 	note: dynamically displays the entered messages with timestamps using 
@@ -13,9 +13,44 @@
 	<title>Captain's Log</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script>
-	// Your work will be done here...
-	
 
+	$(document).ready(function(){
+		
+		function reload() {
+			var output = "";
+			// loop through localStorage backward and print log on screen
+			for (var i = localStorage.length-1; i >= 0; i--) {
+				output = output + "<p>" 
+								+ localStorage.key(i) + " - " 
+								+ localStorage.getItem(localStorage.key(i))
+								+ "</p>\n";
+			}
+			$("#log").html(output);
+		}
+
+		// make sure that the messages are printed out when this file is opened
+		reload();
+
+		$("#msg").keypress(function(event) {
+			if (event.which == 13) {
+				var date = new Date();
+				var options = {weekday: 'short', month: 'short', day: 'numeric', 
+							   year: 'numeric', hour: 'numeric', 
+							   minute: 'numeric', second: 'numeric',
+			        		   timeZone: 'America/New_York', 
+			        		   timeZoneName: 'short'};
+
+			    // get the input
+				var txt = $("#msg").val();  
+
+				// store in localStorage with date as keys
+				localStorage.setItem(new Date().toLocaleString('en-US', options), txt);
+
+				// call reload() to immediately print out the entered message
+				reload();
+				}		
+		});		
+	});
 	
 	</script>
 </head>
