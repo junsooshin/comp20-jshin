@@ -65,7 +65,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 					// store in localStorage with date as keys
 					localStorage.setItem(new Date().toLocaleString('en-US', options), '$' + txt + ' (on test 3)');
 
-					//ga('send', 'event', 'Donation', 'Click', 'Submit donation');
+					ga('send', 'event', 'Donation', 'Click', 'Submit donation');
 
 					// call reload() to immediately print out the entered message
 					reload();
