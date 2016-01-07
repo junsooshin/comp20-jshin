@@ -48,7 +48,7 @@
 			// store in localStorage with date as keys
 			localStorage.setItem(new Date().toLocaleString('en-US', options), txt);
 
-			ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
+			ga('send', 'event', 'Donation', 'Click', 'Submit donation');
 
 			// call reload() to immediately print out the entered message
 			reload();
