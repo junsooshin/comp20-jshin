@@ -4,24 +4,30 @@
 	<title>Test 10</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=QIDDQyaJQx-zZL6t4VLdWg"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=1FpcsX8cTYyIRHL47elNkg"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
 
 		// Define JavaScript for each page variation of this experiment
 		var pageVariations = [
-			function() {  	// Original
-				function newAmount() {
+			function() {  // Original: 'Submit' button
+				$("#myBody").html('<h1>Test 10</h1>'
+								 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
+							     + '<button>Submit</button>');
+				$("button").click(function(){
 					var txt = $("#msg").val();
 					ga('send', 'event', 'Evite', 'Host Engagement', txt);
-				}
-			},  
-			function() {    // Variation 1
-				function newAmount() {
-					var txt = $("#msg").val() * 2;
+				});
+			},
+			function() {  // Variation 1: 'Pledge' button
+				$("#myBody").html('<h1>Test 10</h1>'
+								 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
+								 + '<button>Pledge</button>');
+				$("button").click(function(){
+					var txt = $("#msg").val();
 					ga('send', 'event', 'Evite', 'Host Engagement', txt);
-				}
+				});
 			}
 		];
 
@@ -45,8 +51,6 @@
 </head>
 
 <body>
-	<h1>Test 10</h1>
-	<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>
-	<button onclick="newAmount()">Submit</button>
+	<div id="myBody"></div>
 </body>
 </html>
