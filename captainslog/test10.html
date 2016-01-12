@@ -11,22 +11,18 @@
 
 		// Define JavaScript for each page variation of this experiment
 		var pageVariations = [
-			function() {  	// Original: button says "Submit"
+			function() {  	// Original
 				function newAmount() {
-					$("#myBox").html('<h1>Test10</h1>'
-									 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
-									 + '<button onclick="newAmount()">Submit</button>');
 					var txt = $("#msg").val();
-					ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
-		}
+					console.log(txt);
+					ga('send', 'event', 'Evite', 'Host Engagement', txt);
+				}
 			},  
-			function() {    // Variation 1: button says "Pledge"
+			function() {    // Variation 1
 				function newAmount() {
-					$("#myBox").html('<h1>Test10</h1>'
-									 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
-									 + '<button onclick="newAmount()">Pledge</button>');
-					var txt = $("#msg").val();
-					ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
+					var txt = $("#msg").val() * 2;
+					console.log(txt);
+					ga('send', 'event', 'Evite', 'Host Engagement', txt);
 				}
 			}
 		];
@@ -51,6 +47,8 @@
 </head>
 
 <body>
-	<div id="myBox">
+	<h1>Test 10</h1>
+	<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>
+	<button onclick="newAmount()">Submit</button>
 </body>
 </html>
