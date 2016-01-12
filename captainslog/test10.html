@@ -3,8 +3,13 @@
 <head>
 	<title>Test 10</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
+	<!-- Load the Content Experiment JavaScript API client for the experiment -->
+	<script src="//www.google-analytics.com/cx/api.js?experiment=YUrBO2r95SKCnCEBYDY3aiA"></script>
 	<script>
+		// Ask Google Analytics which variation to show the user
+		var chosenVariation = cxApi.chooseVariation();
+
+		// default Google Analytics tracking code
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -12,19 +17,38 @@
 
 		ga('create', 'UA-72060507-1', 'auto');
 		ga('send', 'pageview');
-	</script>
 
-	<script>
-		function newMessage() {
-			var txt = $("#msg").val();
-			ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
-		}	
+		// Define JavaScript for each page variation of this experiment
+		var pageVariations = [
+			function() {  	// Original: button says "Submit"
+				function newAmount() {
+					$("#myBox").html('<h1>Test10</h1>'
+									 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
+									 + '<button onclick="newAmount()">Submit</button>');
+					var txt = $("#msg").val();
+					ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
+		}
+			},  
+			function() {    // Variation 1: button says "Pledge"
+				function newAmount() {
+					$("#myBox").html('<h1>Test10</h1>'
+									 + '<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>'
+									 + '<button onclick="newAmount()">Pledge</button>');
+					var txt = $("#msg").val();
+					ga('send', 'event', 'Donation', 'Click', 'Submit donation', txt);
+				}
+			}
+		];
+
+		// Wait for the DOM to load, then execute the view for the chosen variation
+		$(document).ready(
+			// Execute the chosen view
+			pageVariations[chosenVariation]
+		);
 	</script>
 </head>
 
 <body>
-	<h1>Test 10</h1>
-	<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>
-	<button onclick="newMessage()">Submit</button>
+	<div id="myBox">
 </body>
 </html>
