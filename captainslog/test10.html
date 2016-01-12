@@ -14,14 +14,12 @@
 			function() {  	// Original
 				function newAmount() {
 					var txt = $("#msg").val();
-					console.log(txt);
 					ga('send', 'event', 'Evite', 'Host Engagement', txt);
 				}
 			},  
 			function() {    // Variation 1
 				function newAmount() {
 					var txt = $("#msg").val() * 2;
-					console.log(txt);
 					ga('send', 'event', 'Evite', 'Host Engagement', txt);
 				}
 			}
