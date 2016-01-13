@@ -4,7 +4,7 @@
 	<title>Test 10</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=KRcRzniTRpesUoK54XbCbg"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=kjGAbOOmTX2fn0F8EQYlWw"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
@@ -16,6 +16,9 @@
 			},
 			function() {  // Variation 1: 'Pledge' button
 				$("#myBtn")[0].innerHTML = "Pledge";
+			}
+			function() {  // Variation 2: 'Donate' button
+				$("#myBtn")[0].innerHTML = "Donate";
 			}
 		];
 
@@ -39,8 +42,8 @@
 
 	<script>
 		function newMessage() {
+			ga('send', 'event', 'Evite', 'Host Engagement', 1);
 			var txt = $("#msg").val();
-			ga('send', 'event', 'Evite', 'Host Engagement');
 			console.log(txt);
 		}
 	</script>
