@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test 10</title>
+	<title>Test 11</title>
+	<link rel="stylesheet" href="teststyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=WIRg52WfTmKeKzbo8dzy2A"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=XiZLZuzLRheisOY8N9BNsA"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
@@ -16,6 +17,10 @@
 			},
 			function() {  // Variation 1: 'Pledge' button
 				$("#myBtn")[0].innerHTML = "Pledge";
+			},
+			function() {  // Variation 2: 'Donate' button
+				$("#myBtn")[0].innerHTML = "Donate";
+				$("#myBtn")[0].className = "donateBtn";
 			}
 		];
 
@@ -47,7 +52,7 @@
 </head>
 
 <body>
-	<h1>Test 10</h1>
+	<h1>Test 11</h1>
 	<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>
 	<button id="myBtn", onclick="newMessage()">Submit</button>
 </body>
