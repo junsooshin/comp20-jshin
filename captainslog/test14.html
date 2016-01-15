@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test 11</title>
+	<title>Test 14</title>
 	<link rel="stylesheet" href="teststyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=ouovqaNNSDyOfwNHrxH8EA"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=prE3q76FShGPEOhM0ES2kg"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
-		console.log("chosenVariation: " + chosenVariation);
 
 		// Define JavaScript for each page variation of this experiment
 		var pageVariations = [
-			function() {  // Original: 'Submit' button
+			function() {  // Original: 'Find Your Nonprofit' button
 			},
-			function() {  // Variation 1: 'Pledge' button
-				$("#myBtn")[0].innerHTML = "Pledge";
+			function() {  // Variation 1: 'Find Your NPO' button
+				$("#firstBtn")[0].innerHTML = "Find Your NPO";
 			},
-			function() {  // Variation 2: 'Donate' button
-				$("#myBtn")[0].innerHTML = "Donate";
-				$("#myBtn")[0].className = "donateBtn";
+			function() {  // Variation 2: 'Find Your Nonprofit' button and 'Pledge' button
+				$("#secondBtnBox").html('<p></p><button id="secondBtn", onclick="sendSecond()">Pledge</button>');
+				$("#secondBtn")[0].className = "pledgeBtn";
 			}
 		];
 
@@ -43,17 +42,18 @@
 	</script>
 
 	<script>
-		function newMessage() {
+		function sendFirst() {
 			ga('send', 'event', 'Evite', 'Host Engagement', 'Find Your Nonprofit Button', 1);
-			var txt = $("#msg").val();
-			console.log(txt);
+		}
+		function sendSecond() {
+			ga('send', 'event', 'Evite', 'Guest Engagement', 'Pledge Button', 1);
 		}
 	</script>
 </head>
 
 <body>
-	<h1>Test 11</h1>
-	<h3>Amount: <input type="number" id="msg" name="msg" size="30" /></h3>
-	<button id="myBtn", onclick="newMessage()">Submit</button>
+<h1>Test 14</h1>
+	<button id="firstBtn", onclick="sendFirst()">Find Your Nonprofit</button>
+	<div id="secondBtnBox"></div>
 </body>
 </html>
