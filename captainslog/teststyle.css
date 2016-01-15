@@ -1,8 +1,8 @@
 /* title: teststyle.css
-   note: css stylesheet for test11.html
+   note: css stylesheet for test12.html and test14.html
 */
 
-.donateBtn {
-	background-color: black;
+.pledgeBtn {
+	background-color: purple;
     color: white;
 }
