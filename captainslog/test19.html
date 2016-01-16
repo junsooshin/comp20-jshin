@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test 18</title>
+	<title>Test 19</title>
 	<link rel="stylesheet" href="teststyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=JyBUVW6xTPyvNzNlxHr7Ew"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=UiSE-i7eR7GfqyBe_CxlsA"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
@@ -43,13 +43,18 @@
 
 	<script>
 		function sendGoogle() {
-			ga('send', 'event', 'Evite', 'Donate/Pledge Button', null, 1);
+			ga('send', {
+			  hitType: 'event',
+			  eventCategory: 'Evite',
+			  eventAction: 'Donate/Pledge Button',
+			  eventValue: 1
+			});
 		}
 	</script>
 </head>
 
 <body>
-	<h1>Test 18</h1>
+	<h1>Test 19</h1>
 	<button id="myBtn", onclick="sendGoogle()">Submit</button>
 </body>
 </html>
