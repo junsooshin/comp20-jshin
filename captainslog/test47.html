@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test 46</title>
+	<title>Test 47</title>
 	<link rel="stylesheet" href="teststyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<!-- Load the Content Experiment JavaScript API client for the experiment -->
-	<script src="//www.google-analytics.com/cx/api.js?experiment=CwPeTkwxTmKPdMM-6MWCgA"></script>
+	<script src="//www.google-analytics.com/cx/api.js?experiment=M8ekld02Q8iSTCZP91nO3w"></script>
 	<script>
 		// Ask Google Analytics which variation to show the user
 		var chosenVariation = cxApi.chooseVariation();
@@ -14,15 +14,18 @@
 		var pageVariations = [
 			function() {  // Original: 'Submit' button
 				ga('set', 'dimension1', 'Submit button');
+				ga('send', 'pageview');
 			},
 			function() {  // Variation 1: 'Donate' button
 				$("#myBtn")[0].innerHTML = "Donate";
 				ga('set', 'dimension1', 'Donate button');
+				ga('send', 'pageview');
 			},
 			function() {  // Variation 2: 'Pledge' button with different colors
 				$("#myBtn")[0].innerHTML = "Pledge";
 				$("#myBtn")[0].className = "pledgeBtn";
 				ga('set', 'dimension1', 'Pledge button');
+				ga('send', 'pageview');
 			}
 		];
 
@@ -39,7 +42,6 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 		ga('create', 'UA-72060507-1', 'auto');
-		ga('send', 'pageview');
 
 		function sendGoogle() {
 			ga('send', 'event', 'Evite', 'Donate/Pledge Button');
@@ -48,7 +50,7 @@
 </head>
 
 <body>
-	<h1>Test 46</h1>
+	<h1>Test 47</h1>
 	<button id="myBtn", onclick="sendGoogle()">Submit</button>
 </body>
 </html>
