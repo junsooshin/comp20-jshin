@@ -1,29 +1,28 @@
-
 <!DOCTYPE html>
-<!-- scantest.html -->
-<!-- Copied directly from https://kaustav.uk.com/credit.html 
-     to test whether Safari shows "scan credit card" option -->
+<!-- copied directly from https://www.paymentspring.com/blog/hacking-form-cardscan to test iOS's card scanning feature -->
+
 <html>
-	<head>
-	<title>Scan credit card using iOS 8</title>
-	</head>
-<body>
-	<form>
-		Credit Card Name<br>
-		<label for="ccName">Name on card</label>
-		<input id="ccName" name="ccName" type="text">
-		<br>
-		Credit Card Number<br>
-		<input type="tel" name="cardNummer" id="cardNumber">
-		<br>
-		Expiry month <br> 
-		<input type="number"  name="cardExpirationMonth" id="cardExpirationMonth">
-		<br>
-		Expiry year <br>
-		<input type="number" name="cardExpirationYear" id="cardExpirationYear">
-		<br>
-		<br>
-		<input type="submit" value="Purchase" id="purchase">
-	</form>
-</head>
-</html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Credit Card Form</title>
+   </head>
+   <body>
+      <form>
+         <fieldset>
+            <label for="ccName">Name on card</label>
+            <input id="ccName" name="ccName" type="text">
+            
+            <label for="cc_number">Credit Card Number</label>
+            <input id="cc_number" name="cc_number" type="text" >
+            
+            <label for="cardExpirationMonth">Expiration Month</label>
+            <input id="cardExpirationMonth" name="cardExpirationMonth" type="text">
+            
+            <label for="cardExpirationYear">Expiration Year</label>
+            <input id="cardExpirationYear" name="cardExpirationYear" type="text">
+            
+	    	<input type="submit" value="Charge">
+         </fieldset>
+      </form>
+   </body>
+</html
