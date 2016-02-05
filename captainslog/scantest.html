@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<!-- copied directly from https://www.paymentspring.com/blog/hacking-form-cardscan to test iOS's card scanning feature -->
+<!--  name: scantest.html
+      purpose: testing iOS Safari's 'Scan Credit Card' feature
+	  note: code and information from:
+	 		https://www.paymentspring.com/blog/hacking-form-cardscan
+	      	https://www.linkedin.com/pulse/automatic-credit-card-scanning-ios-8s-safari-web-kaustav-bhattacharya
+	       	http://stackoverflow.com/questions/25163891/when-scan-credit-card-option-is-available-on-ios8-safari?answertab=votes#tab-top  --> 
 
 <html>
    <head>
@@ -9,19 +14,36 @@
    <body>
       <form>
          <fieldset>
-            <label for="cardName">Name on card</label>
-            <input id="cardName" name="cardName" type="text">
-            
-            <label for="cardNumber">Credit Card Number</label>
-            <input id="cardNumber" name="cardName" type="tel">
-            
-            <label for="cardExpirationMonth">Expiration Month</label>
-            <input id="cardExpirationMonth" name="cardExpirationMonth" type="tel">
-            
-            <label for="cardExpirationYear">Expiration Year</label>
-            <input id="cardExpirationYear" name="cardExpirationYear" type="tel">
-            
-	    	<input type="submit" value="Charge">
+         	Card Holder Name
+            <!-- <input id="cardName" name="cardName" type="text"> -->
+            <input id="cardName" type="text">
+
+            <br><br>
+
+            Card Number
+            <!-- <input id="cardNumber" name="cardName" type="tel"> -->
+            <input id="cardNumber" type="tel">
+
+            <br><br>
+
+            Expiration Month
+            <!-- <input id="cardExpirationMonth" name="cardExpirationMonth" type="tel"> -->
+            <input id="cardExpirationMonth" type="tel">
+
+            <br><br>
+
+            Expiration Year
+            <!-- <input id="cardExpirationYear" name="cardExpirationYear" type="tel"> -->
+            <input id="cardExpirationYear" type="tel">
+
+            <br><br>
+
+            <!-- CSV (This won't get scanned) -->
+            <!-- <input id="cardCSV" name="cardCSV" type="tel"> -->
+
+            <br><br>
+
+	    	<input type="submit" value="Submit">
          </fieldset>
       </form>
    </body>
