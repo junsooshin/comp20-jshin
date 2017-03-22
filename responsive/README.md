@@ -20,12 +20,15 @@ due 6 October 2015
 - Piazza posts and answers from Ming, TA's, and classmates helped me
 
 - Showed that .homer class can go inside @media
+  
   <http://alistapart.com/article/responsive-web-design>
 
 - Showed how to construct .homer class and how to use negative pixels
+  
   <https://varvy.com/pagespeed/combine-images-css-sprites.html>
 
 - Showed how to use @media
+  
   <https://css-tricks.com/snippets/css/media-queries-for-standard-devices>
 
 - I discussed the problem with Peter Lee

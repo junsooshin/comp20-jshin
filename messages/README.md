@@ -16,10 +16,12 @@ from using XMLHttpRequest? Why or why not?
 
 - No, using a local machine does not show the content and gives me:
 
-<p>lab.js:15 XMLHttpRequest cannot load file:///Users/JunSooShin/Desktop/
+<pre><code>
+lab.js:15 XMLHttpRequest cannot load file:///Users/JunSooShin/Desktop/
 Informatik/comp20/comp20-jshin/messages/data.json. Cross origin requests are 
 only supported for protocol schemes: http, data, chrome, chrome-extension, 
-https, chrome-extension-resource.parse @ lab.js:15onload @ (index):12<p>
+https, chrome-extension-resource.parse @ lab.js:15onload @ (index):12
+</code></pre>
 
 - XMLHttpRequest request follows a web-browser's the same-origin-policy, which 
   means that the scripts in one webpage will have acess to the data in another 
@@ -49,11 +51,15 @@ https, chrome-extension-resource.parse @ lab.js:15onload @ (index):12<p>
 - Piazza questions and answers by Ming, TA's, and classmates
 
 - Helped me set up the general architecture of the code
+  
   <http://www.w3schools.com/json/json_http.asp>
 
 - Helped me answer the question above
+  
   <https://en.wikipedia.org/wiki/XMLHttpRequest>
+  
   <https://en.wikipedia.org/wiki/Same-origin_policy>
+  
   <https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy>
 
 - Classnotes on Asynchronous JavaScript and XML	  
