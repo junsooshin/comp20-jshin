@@ -16,10 +16,9 @@ from using XMLHttpRequest? Why or why not?
 
 - No, using a local machine does not show the content and gives me:
 
-<pre><code>
-lab.js:15 XMLHttpRequest cannot load file:///Users/JunSooShin/Desktop/
-Informatik/comp20/comp20-jshin/messages/data.json. Cross origin requests are 
-only supported for protocol schemes: http, data, chrome, chrome-extension, 
+<pre><code>lab.js:15 XMLHttpRequest cannot load file:///Users/JunSooShin/
+Desktop/Informatik/comp20/comp20-jshin/messages/data.json. Cross origin requests 
+are only supported for protocol schemes: http, data, chrome, chrome-extension, 
 https, chrome-extension-resource.parse @ lab.js:15onload @ (index):12
 </code></pre>
 
