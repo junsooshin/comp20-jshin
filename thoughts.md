@@ -1,6 +1,3 @@
-- The purpose of this Git repository is to see and show what I did in Web 
-Programming course.
-
 - I enjoyed working on the final group project the most because I had a chance 
 to review almost all of concepts we went over in the class, from using local 
 storage to sending HTTP requests to making a page responsive. Until the last few
@@ -12,7 +9,7 @@ exciting goal I wanted to achieve, which was making the project application
 work, and was able to really learn the tools I used because I had to share them
 with my teammates.
 
-Working on the final project also gave me confidence that I could make, or
+- Working on the final project also gave me confidence that I could make, or
 participate in making, something tangible and something that works. I heard that
 working on side projects were important but did not know how to start one. 
 Working on something interesting besides school seems less daunting now. The 
