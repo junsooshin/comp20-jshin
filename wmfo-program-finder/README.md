@@ -1,6 +1,6 @@
 # WMFO Program Finder
 
-- Check it out at: <junsooshin.github.io/comp20-jshin/wmfo-program-finder>
+- Check it out at: <https://junsooshin.github.io/comp20-jshin/wmfo-program-finder>
 
 - Worked with Peter Lee, Rachel Marison, and Steven Manwaring.
 
