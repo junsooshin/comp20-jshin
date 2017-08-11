@@ -57,8 +57,13 @@
 				var message = encodeURIComponent("Where am I?");
 
 				// lines 62-70 are copied directly from the 3rd answer from the top on
+<<<<<<< HEAD
  				// http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
  				
+=======
+				// http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript
+
+>>>>>>> 1c55ade41b5062c907ee61ed981a139664d055cc
 				function distance(lat1, lon1, lat2, lon2) {
 					var R = 6371; // Radius of the earth in km
 				  	var dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
@@ -67,7 +72,11 @@
 				            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
 				     		(1 - Math.cos(dLon))/2;
 				  	return R * 2 * Math.asin(Math.sqrt(a));
+<<<<<<< HEAD
  				}
+=======
+				}
+>>>>>>> 1c55ade41b5062c907ee61ed981a139664d055cc
 				
 				myRequest.onreadystatechange = function() {
 					if (myRequest.readyState == 4 && myRequest.status == 200) {
