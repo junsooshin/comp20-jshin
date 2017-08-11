@@ -5,7 +5,7 @@
 - Worked with Peter Lee, Rachel Marison, and Steven Manwaring.
 
 - The team discussed the architecture of the program together. I was responsible
-for making a page with information of each show ([showinfo.html](https://github.com/junsooshin/comp20-jshin/blob/master/wmfo-program-finder/frontend/showinfo.html)).
+for making a page with information of each show ([showinfo.html](https://github.com/junsooshin/comp20-jshin/blob/master/wmfo-program-finder/frontend/showinfo.html) and parts of [showinfostyle.css](https://github.com/junsooshin/comp20-jshin/blob/master/wmfo-program-finder/frontend/showinfostyle.css)).
 
 ## Problem Statement:
 
